@@ -2,6 +2,11 @@
 # this should be run after check-build finishes.
 . /etc/profile.d/modules.sh
 module add deploy
+module add cmake
+module add zlib
+module add lapack/3.7.0-gcc-${GCC_VERSION}
+module add  boost/1.63.0-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
+
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 echo "All tests have passed, will now build into ${SOFT_DIR}"
 rm -rf
