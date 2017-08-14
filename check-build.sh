@@ -15,7 +15,6 @@
 
 . /etc/profile.d/modules.sh
 module add ci
-whoami
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 make check
 
@@ -36,7 +35,7 @@ proc ModulesHelp { } {
 
 module-whatis   "$NAME $VERSION."
 setenv       CGAL_VERSION       $VERSION
-setenv       CGAL_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION
+setenv       CGAL_DIR           /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$VERSION-gcc-${GCC_VERSION}
 prepend-path LD_LIBRARY_PATH   $::env(CGAL_DIR)/lib
 setenv CPPFLAGS            "-I$::env(CGAL_DIR)/include $CPPFLAGS"
 setenv LDFLAGS           "-L$::env(CGAL_DIR)/lib $LDFLAGS"
